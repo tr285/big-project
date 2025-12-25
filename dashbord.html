@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoxMentor — Dashboard</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(120deg, #12c912, #203a43, #3416ce);
+            color: #fff;
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 40px;
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        nav h2 {
+            letter-spacing: 1px;
+        }
+
+        nav button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            background: linear-gradient(90deg, #00ffff, #007bff);
+        }
+
+        /* MAIN SECTION */
+        .container {
+            padding: 40px;
+        }
+
+        .grid {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, .3);
+            transition: .3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 30px rgba(0, 255, 255, .6);
+        }
+
+        .card i {
+            font-size: 38px;
+            color: #00ffff;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin-bottom: 6px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            opacity: .8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>VoxMentor Dashboard</h2>
+        <button onclick="logout()">Logout</button>
+    </nav>
+
+    <div class="container">
+
+        <h2>Welcome 👋</h2>
+        <p>Select what you want to do today</p>
+
+        <div class="grid">
+
+            <div class="card" onclick="goto('practice.html')">
+                <i class='bx bx-brain'></i>
+                <h3>Practice Interview</h3>
+                <p>AI generated questions & feedback</p>
+            </div>
+
+            <div class="card" onclick="goto('voice.html')">
+                <i class='bx bx-microphone'></i>
+                <h3>Voice Interview</h3>
+                <p>Speak with AI interviewer</p>
+            </div>
+
+            <div class="card" onclick="goto('resume.html')">
+                <i class='bx bx-file'></i>
+                <h3>Resume Analyzer</h3>
+                <p>ATS scoring & suggestions</p>
+            </div>
+
+            <div class="card" onclick="goto('progress.html')">
+                <i class='bx bx-bar-chart'></i>
+                <h3>Progress & Reports</h3>
+                <p>Track performance & mistakes</p>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            © 2025 VoxMentor — Smart AI Interview Trainer
+        </div>
+
+    </div>
+
+  <script>
+const user = localStorage.getItem("vox_user");
+const password = localStorage.getItem("vox_user");
+
+if(!user){
+    window.location.href = "index.html";
+}
+
+function logout(){
+    localStorage.removeItem("vox_user");
+    localStorage.removeItem("vox_user");
+    alert("Logged out");
+    window.location.href = "index.html";
+}
+
+function goto(page){
+    window.location.href = page;
+}
+</script>
+
+
+</body>
+
+</html>
